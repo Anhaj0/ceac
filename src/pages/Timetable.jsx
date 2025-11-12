@@ -1,65 +1,87 @@
+// src/pages/Timetable.jsx
+
 export default function Timetable() {
+  
+  // New schedule data from your checklist
+  const schedule = [
+    { 
+      day: "Mondays", 
+      times: [
+        { time: "3:30 - 5:30 p.m.", class: "Flyers Group 1" }
+      ] 
+    },
+    { 
+      day: "Tuesdays", 
+      times: [
+        { time: "3:30 - 5:30 p.m.", class: "Movers Group 1" }
+      ] 
+    },
+    { 
+      day: "Wednesdays", 
+      times: [
+        { time: "9:15 - 11:15 a.m.", class: "Spoken English for Ladies" },
+        { time: "3:30 - 5:30 p.m.", class: "Beginners" }
+      ] 
+    },
+    { 
+      day: "Thursdays", 
+      times: [
+        { time: "9:15 - 11:15 a.m.", class: "KET for Housewives" },
+        { time: "3:30 - 5:30 p.m.", class: "Jolly Phonics" }
+      ] 
+    },
+    { 
+      day: "Fridays", 
+      times: [
+        { time: "3:30 - 5:30 p.m.", class: "Starters Group 1" }
+      ] 
+    },
+    { 
+      day: "Saturdays", 
+      times: [
+        { time: "7:30 - 9:30 a.m.", class: "KET Group 2" },
+        { time: "9:30 - 11:30 a.m.", class: "Starters Group 2" },
+        { time: "11:30 - 1:30 p.m.", class: "Flyers Group 2" },
+        { time: "1:30 - 3:30 p.m.", class: "Movers Group 2" },
+        { time: "3:30 - 5:30 p.m.", class: "Pre-starters" }
+      ] 
+    },
+    { 
+      day: "Sundays", 
+      times: [
+        { time: "7:30 - 9:30 a.m.", class: "FCE Group 2" },
+        { time: "9:30 - 11:30 a.m.", class: "PET Group 3" },
+        { time: "11:30 - 1:30 p.m.", class: "PET Group 1" },
+        { time: "1:30 - 3:30 p.m.", class: "KET Group 1" },
+        { time: "3:30 - 5:30 p.m.", class: "FCE Group 1" }
+      ] 
+    }
+  ];
+
   return (
     <section id="timetable" className="page-content">
-      <h2 className="text-4xl font-bold text-center mb-10">Class Timetables</h2>
-      <div className="bg-white p-6 sm:p-8 rounded-lg shadow-md overflow-x-auto">
+      <h2 className="text-4xl font-bold text-center mb-10">Class Timetables (From December)</h2>
+      <div className="bg-white p-6 sm:p-8 rounded-lg shadow-lg overflow-x-auto">
         <p className="text-center text-gray-600 mb-6">
-          Our weekly schedule is packed with learning opportunities. Course duration is 1 year.
+          Our weekly schedule is packed with learning opportunities.
         </p>
-        <table className="w-full min-w-max text-center text-sm">
-          <thead>
-            <tr className="bg-blue-100">
-              <th className="p-3 font-semibold">Day</th>
-              <th className="p-3 font-semibold">Morning (9am-1pm)</th>
-              <th className="p-3 font-semibold">Afternoon (1pm-5pm)</th>
-              <th className="p-3 font-semibold">Evening (5pm-9pm)</th>
-            </tr>
-          </thead>
-          <tbody className="text-gray-700">
-            <tr className="border-b">
-              <td className="p-3 font-medium">Monday</td>
-              <td></td>
-              <td>YLE Flyers (3:30-5:30)</td>
-              <td></td>
-            </tr>
-            <tr className="border-b bg-gray-50">
-              <td className="p-3 font-medium">Tuesday</td>
-              <td></td>
-              <td>YLE Movers (3:30-5:30)</td>
-              <td></td>
-            </tr>
-            <tr className="border-b">
-              <td className="p-3 font-medium">Wednesday</td>
-              <td>Spoken English - Ladies (9:15-11:15)</td>
-              <td>English for Beginners (3:30-5:30)</td>
-              <td></td>
-            </tr>
-            <tr className="border-b bg-gray-50">
-              <td className="p-3 font-medium">Thursday</td>
-              <td></td>
-              <td>Jolly Phonics (3:30-5:30)</td>
-              <td></td>
-            </tr>
-            <tr className="border-b">
-              <td className="p-3 font-medium">Friday</td>
-              <td></td>
-              <td>YLE Starters (3:30-5:30)</td>
-              <td></td>
-            </tr>
-            <tr className="border-b bg-gray-50">
-              <td className="p-3 font-medium">Saturday</td>
-              <td>YLE Starters (9:30-11:30) <br/> YLE Movers (1:30-3:30)</td>
-              <td>YLE Flyers (11:30-1:30)</td>
-              <td></td>
-            </tr>
-            <tr className="border-b">
-              <td className="p-3 font-medium">Sunday</td>
-              <td>PET Group 1 (11:30-1:30)</td>
-              <td>KET Group 1 (1:30-3:30) <br/> FCE Group 1 (3:30-5:30)</td>
-              <td></td>
-            </tr>
-          </tbody>
-        </table>
+        <div className="space-y-6">
+          {schedule.map((day) => (
+            <div key={day.day} className="grid md:grid-cols-4 gap-4 items-start">
+              <h3 className="md:col-span-1 text-xl font-bold text-brand-blue md:text-right">
+                {day.day}
+              </h3>
+              <div className="md:col-span-3 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {day.times.map((item) => (
+                  <div key={item.class} className="bg-gray-50 border border-gray-200 p-4 rounded-lg">
+                    <p className="font-semibold text-gray-700">{item.time}</p>
+                    <p className="text-brand-blue">{item.class}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   )

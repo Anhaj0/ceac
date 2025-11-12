@@ -1,3 +1,5 @@
+// src/components/Slideshow.jsx
+
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 
@@ -15,7 +17,7 @@ export default function Slideshow() {
     {
       bg: 'https://placehold.co/1200x450/DAA520/000000?text=Slide+2',
       title: 'Admissions in Progress for December',
-      text: "New batch intake is now open. Don't miss your chance to join!",
+      text: "New batch intake is now open. Don't miss your chance in achieving an International Qualification!", // <-- FIX APPLIED
       cta: { text: 'Contact Us Today', href: '/contact', variant: 'blue' }
     },
     {

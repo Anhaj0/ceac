@@ -3,22 +3,38 @@
 import Slideshow from '../components/Slideshow.jsx'
 import { Link } from 'react-router-dom'
 
-// --- We'll define some summary data here for the homepage ---
+// --- Updated summary data ---
 
-// A few key features from your 'Why Us' page
+// Features updated to match your new WhyUs page
 const whyUsFeatures = [
-  { icon: 'shield-check', title: 'Certified Exam Centre', text: 'Recognized by International Examination Services.' },
-  { icon: 'award', title: 'Qualified Teacher', text: '14 years of experience from a trained Cambridge tutor.' },
-  { icon: 'book-marked', title: 'Cambridge ESOL Curriculum', text: 'Following the official, internationally accepted curriculum.' },
-  { icon: 'gamepad-2', title: 'Activity Based Learning', text: 'Engaging and interactive teaching methods.' },
+  { 
+    icon: 'shield-check', 
+    title: 'Certified Exam Preparation Centre', 
+    text: 'A registration centre for International Examination Services.' 
+  },
+  { 
+    icon: 'award', 
+    title: 'Qualified & Experienced Tutor', 
+    text: 'A trained Cambridge English tutor with 14 years of experience.' 
+  },
+  { 
+    icon: 'air-vent', 
+    title: 'Air Conditioned Smart Classroom', 
+    text: 'Well-equipped with modern smart technology for effective learning.' 
+  },
+  { 
+    icon: 'message-square-quote', 
+    title: 'Public Speaking & Debates', 
+    text: 'We build confidence by conducting speech and debate sessions.' 
+  },
 ]
 
-// The latest news item from your 'News' page
+// Latest news item with the grammar fix
 const latestNews = { 
   date: 'October 16, 2025', 
   title: 'Admissions Open for December Intake!', 
   img: 'https://placehold.co/600x400/e0e7ff/0A246A?text=New+Intake', 
-  text: "Don't miss your chance to achieve an International Qualification. New batches are starting soon..." 
+  text: "New batch intake is now open. Don't miss your chance in achieving an International Qualification!" // <-- FIX APPLIED
 }
 
 // --- Helper Components for clean sections ---
@@ -43,7 +59,7 @@ function CtaButton({ to, children }) {
   )
 }
 
-// --- Your New Homepage Component ---
+// --- Your Homepage Component ---
 
 export default function Home() {
   return (
@@ -96,8 +112,8 @@ export default function Home() {
         <div className="grid md:grid-cols-3 gap-8 text-center">
           <div className="bg-white p-6 rounded-lg shadow-md">
             <i data-lucide="book-copy" className="h-10 w-10 text-brand-blue mx-auto mb-4"></i>
-            <h3 className="text-xl font-bold text-brand-blue mb-2">English for Beginners</h3>
-            <p className="text-gray-600">Jolly Phonics, Play Group, and Pre-Starters.</p>
+            <h3 className="text-xl font-bold text-brand-blue mb-2">English for Kids</h3>
+            <p className="text-gray-600">Jolly Phonics, Beginners, and Pre-Starters.</p>
           </div>
           <div className="bg-white p-6 rounded-lg shadow-md">
             <i data-lucide="award" className="h-10 w-10 text-brand-blue mx-auto mb-4"></i>

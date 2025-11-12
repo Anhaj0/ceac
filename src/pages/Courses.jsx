@@ -1,90 +1,70 @@
+// src/pages/Courses.jsx
+
 export default function Courses() {
+  
+  // New structured data from your checklist
+  const courseCategories = [
+    {
+      category: "English for Kids",
+      courses: [
+        { level: "Level 1", name: "English for Beginners", schedule: "Wednesdays 3:30 - 5:30 p.m." },
+        { level: "Level 2", name: "Jolly Phonics", schedule: "Thursdays 3:30 - 5:30 p.m." },
+        { level: "Level 3", name: "Pre-starters", schedule: "Saturdays 3:30 - 5:30 p.m." },
+      ]
+    },
+    {
+      category: "Cambridge Young Learners (YLE)",
+      courses: [
+        { level: "Pre A1", name: "Cambridge Starters", schedule: "Group 1: Fridays 3:30 - 5:30 p.m.\nGroup 2: Saturdays 9:30 - 11:30 a.m." },
+        { level: "A1", name: "Cambridge Movers", schedule: "Group 1: Tuesdays 3:30 - 5:30 p.m.\nGroup 2: Saturdays 1:30 - 3:30 p.m." },
+        { level: "A2", name: "Cambridge Flyers", schedule: "Group 1: Mondays 3:30 - 5:30 p.m.\nGroup 2: Saturdays 11:30 - 1:30 p.m." },
+      ]
+    },
+    {
+      category: "Cambridge General English",
+      courses: [
+        { level: "A2", name: "Cambridge KET", schedule: "Group 1: Sundays 1:30 - 3:30 p.m.\nGroup 2: Saturdays 7:30 - 9:30 a.m." },
+        { level: "B1", name: "Cambridge PET", schedule: "Group 1: Sundays 11:30 - 1:30 p.m.\nGroup 3: Sundays 9:30 - 11:30 a.m." },
+        { level: "B2", name: "Cambridge FCE", schedule: "Group 1: Sundays 3:30 - 5:30 p.m.\nGroup 2: Sundays 7:30 - 9:30 a.m." },
+      ]
+    },
+    {
+      category: "Special Courses for Ladies",
+      courses: [
+        { level: "B1", name: "Cambridge KET for Ladies", schedule: "Thursdays 9:15 - 11:15 a.m. (Housewives batch)" },
+        { level: "Spoken", name: "Spoken English for Ladies", schedule: "Wednesdays 9:15 - 11:15 a.m." },
+      ]
+    }
+  ];
+
   return (
     <section id="courses" className="page-content">
-      <h2 className="text-4xl font-bold text-center mb-10">Our Courses</h2>
-      <div className="space-y-12">
-        {/* English for Beginners */}
-        <div>
-          <h3 className="text-3xl font-bold mb-6 border-l-4 border-brand-gold pl-4">
-            English for Beginners
-          </h3>
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <h4 className="text-xl font-bold text-brand-blue">
-                Play Group, Nursery &amp; Kindergarten
-              </h4>
-              <p className="text-gray-600 mt-2">Wednesday 3:30 - 5:30 p.m.</p>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <h4 className="text-xl font-bold text-brand-blue">
-                Jolly Phonics (Kindergarten, Gr. 1 &amp; 2)
-              </h4>
-              <p className="text-gray-600 mt-2">Thursday 3:30 - 5:30 p.m.</p>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <h4 className="text-xl font-bold text-brand-blue">
-                Pre-Starters (Gr. 1, 2 &amp; 3)
-              </h4>
-            </div>
-          </div>
-        </div>
-        {/* Cambridge YLE */}
-        <div>
-          <h3 className="text-3xl font-bold mb-6 border-l-4 border-brand-gold pl-4">
-            Cambridge YLE Courses (Grades 2-7)
-          </h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <h4 className="text-xl font-bold text-brand-blue">YLE Starters</h4>
-              <p className="text-gray-600 mt-2">Group 1: Fridays 3.30 - 5.30 p.m.</p>
-              <p className="text-gray-600">Group 2: Saturdays 9.30 - 11.30 a.m.</p>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <h4 className="text-xl font-bold text-brand-blue">YLE Movers</h4>
-              <p className="text-gray-600 mt-2">Group 1: Tuesdays 3.30 - 5.30 p.m.</p>
-              <p className="text-gray-600">Group 2: Saturdays 1.30 - 3.30 p.m.</p>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <h4 className="text-xl font-bold text-brand-blue">YLE Flyers</h4>
-              <p className="text-gray-600 mt-2">Group 1: Mondays 3.30 - 5.30 p.m.</p>
-              <p className="text-gray-600">Group 2: Saturdays 11.30 - 1.30 p.m.</p>
+      <h2 className="text-4xl font-bold text-center mb-10">Our Courses & Schedule</h2>
+      <p className="text-center text-lg text-gray-600 max-w-3xl mx-auto mb-12">
+        We offer a complete range of courses from beginner levels for kids to advanced Cambridge qualifications for teens and adults.
+      </p>
+
+      <div className="space-y-16">
+        {courseCategories.map((category) => (
+          <div key={category.category}>
+            <h3 className="text-3xl font-bold mb-6 border-l-4 border-brand-gold pl-4">
+              {category.category}
+            </h3>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {category.courses.map((course) => (
+                <div key={course.name} className="bg-white p-6 rounded-lg shadow-lg flex flex-col">
+                  <span className="block text-sm font-medium bg-blue-100 text-brand-blue w-fit px-3 py-1 rounded-full mb-3">
+                    {course.level}
+                  </span>
+                  <h4 className="text-xl font-bold text-brand-blue mb-2">{course.name}</h4>
+                  <div className="text-gray-600 mt-2 whitespace-pre-line">
+                    {course.schedule}
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
-        </div>
-        {/* KET, PET & FCE */}
-        <div>
-          <h3 className="text-3xl font-bold mb-6 border-l-4 border-brand-gold pl-4">
-            KET, PET &amp; FCE (Grades 6-13 &amp; School Leavers)
-          </h3>
-          <div className="grid md:grid-cols-3 gap-6">
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <h4 className="text-xl font-bold text-brand-blue">KET Group 1</h4>
-              <p className="text-gray-600 mt-2">Sundays 1.30 - 3.30 p.m.</p>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <h4 className="text-xl font-bold text-brand-blue">PET Group 1</h4>
-              <p className="text-gray-600 mt-2">Sundays 11.30 - 1.30 p.m.</p>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <h4 className="text-xl font-bold text-brand-blue">FCE Group 1</h4>
-              <p className="text-gray-600 mt-2">Sundays 3.30 - 5.30 p.m.</p>
-            </div>
-          </div>
-        </div>
-        {/* Special Courses */}
-        <div>
-          <h3 className="text-3xl font-bold mb-6 border-l-4 border-brand-gold pl-4">
-            Special Courses
-          </h3>
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <h4 className="text-xl font-bold text-brand-blue">
-                Certificate Course in Spoken English for Ladies
-              </h4>
-              <p className="text-gray-600 mt-2">Wednesdays 9.15 - 11.15 a.m.</p>
-            </div>
-          </div>
-        </div>
+        ))}
       </div>
     </section>
   )

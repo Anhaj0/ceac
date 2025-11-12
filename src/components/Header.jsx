@@ -1,5 +1,7 @@
+// src/components/Header.jsx
+
 import { NavLink, Link } from 'react-router-dom'
-import logo from '../assets/logo.jpg'
+import logo from '../assets/logo.jpg' // This logo will be used for the watermark
 import { useState, useEffect } from 'react'
 
 export default function Header() {
@@ -12,8 +14,18 @@ export default function Header() {
       : 'nav-link hover:text-brand-blue transition duration-300'
 
   return (
-    <header className="bg-white shadow-md sticky top-0 z-50">
-      <nav className="container mx-auto px-4 sm:px-6 py-3 flex justify-between items-center">
+    // Added relative and overflow-hidden for the watermark effect
+    <header className="bg-white shadow-md sticky top-0 z-50 relative overflow-hidden">
+      
+      {/* --- Watermark Logo --- */}
+      <img 
+        src={logo} 
+        alt="" 
+        className="absolute top-1/2 right-4 transform -translate-y-1/2 h-40 w-40 opacity-5 -rotate-12 z-0 pointer-events-none" 
+      />
+
+      {/* Added relative and z-10 so nav is on top of watermark */}
+      <nav className="container mx-auto px-4 sm:px-6 py-3 flex justify-between items-center relative z-10">
         <Link to="/" className="nav-link">
           <img src={logo} alt="Cambridge English Academy Colombo Logo" className="h-14" />
         </Link>
@@ -38,9 +50,9 @@ export default function Header() {
         </button>
       </nav>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu (also needs z-10) */}
       {open && (
-        <div className="lg:hidden bg-white border-t">
+        <div className="lg:hidden bg-white border-t relative z-10">
           <ul className="flex flex-col items-center space-y-2 py-4 text-lg" onClick={() => setOpen(false)}>
             <li><NavLink to="/" className={linkClass} end>Home</NavLink></li>
             <li><NavLink to="/courses" className={linkClass}>Our Courses</NavLink></li>
