@@ -1,5 +1,4 @@
-import cambridgeLogo from '../assets/cambridge_prep_logo.jpg'
-
+import cambridgeLogo from '../assets/cambridge_prep_logo.jpg' // Make sure this image exists!
 export default function Cambridge() {
   return (
     <section id="cambridge" className="page-content">

@@ -15,7 +15,10 @@ import Contact from './pages/Contact.jsx'
 
 export default function App() {
   useEffect(() => {
-    if (window.lucide?.createIcons) window.lucide.createIcons()
+    // This renders Lucide icons every time you change a page
+    if (window.lucide?.createIcons) {
+      window.lucide.createIcons()
+    }
   })
 
   return (

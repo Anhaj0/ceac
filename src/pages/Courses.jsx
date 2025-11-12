@@ -2,7 +2,6 @@ export default function Courses() {
   return (
     <section id="courses" className="page-content">
       <h2 className="text-4xl font-bold text-center mb-10">Our Courses</h2>
-
       <div className="space-y-12">
         {/* English for Beginners */}
         <div>
@@ -29,7 +28,6 @@ export default function Courses() {
             </div>
           </div>
         </div>
-
         {/* Cambridge YLE */}
         <div>
           <h3 className="text-3xl font-bold mb-6 border-l-4 border-brand-gold pl-4">
@@ -53,7 +51,6 @@ export default function Courses() {
             </div>
           </div>
         </div>
-
         {/* KET, PET & FCE */}
         <div>
           <h3 className="text-3xl font-bold mb-6 border-l-4 border-brand-gold pl-4">
@@ -74,7 +71,6 @@ export default function Courses() {
             </div>
           </div>
         </div>
-
         {/* Special Courses */}
         <div>
           <h3 className="text-3xl font-bold mb-6 border-l-4 border-brand-gold pl-4">

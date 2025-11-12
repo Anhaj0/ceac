@@ -1,5 +1,4 @@
-import team from '../assets/cambridge_prep_logo.jpg' // replace with real team image if any
-
+import team from '../assets/cambridge_prep_logo.jpg' // Make sure this image exists!
 export default function About() {
   return (
     <section id="about" className="page-content">
