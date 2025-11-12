@@ -27,10 +27,11 @@ jobs:
           node-version: 20
           cache: 'npm'
 
-      - name: Install deps (include optional for Rollup)
-        run: |
-          # ensure optional deps (rollup native) are installed
-          npm ci --include=optional || npm install --include=optional
+      - name: Install dependencies
+        # This is the key fix.
+        # We are using 'npm install' which is more flexible with optional
+        # dependencies than 'npm ci' (which was causing the error).
+        run: npm install
 
       - name: Build
         run: npm run build
