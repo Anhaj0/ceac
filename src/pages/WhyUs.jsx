@@ -1,6 +1,43 @@
 // src/pages/WhyUs.jsx
+import { 
+  ShieldCheck, 
+  Award, 
+  BookMarked, 
+  AirVent, 
+  Gamepad2, 
+  Volume2, 
+  Library, 
+  Video, 
+  Presentation, 
+  Star, 
+  Bus, 
+  Trophy, 
+  MessageSquareQuote, 
+  TrendingUp, 
+  ClipboardCheck 
+} from 'lucide-react';
 
 export default function WhyUs() {
+  
+  // Mapping strings to actual components
+  const iconMap = {
+    'shield-check': ShieldCheck,
+    'award': Award,
+    'book-marked': BookMarked,
+    'air-vent': AirVent,
+    'gamepad-2': Gamepad2,
+    'volume-2': Volume2,
+    'library': Library,
+    'video': Video,
+    'presentation': Presentation,
+    'star': Star,
+    'bus': Bus,
+    'trophy': Trophy,
+    'message-square-quote': MessageSquareQuote,
+    'trending-up': TrendingUp,
+    'clipboard-check': ClipboardCheck
+  };
+
   const features = [
     { 
       icon: 'shield-check', 
@@ -48,7 +85,7 @@ export default function WhyUs() {
       text: 'Using modern technology for effective teaching.' 
     },
     { 
-      icon: 'microphone', 
+      icon: 'star', 
       title: 'English Competitions and Events', 
       text: 'We conduct speech contests, Spell Master contests, and all the other English competitions. We also have two term tests per year.' 
     },
@@ -68,31 +105,35 @@ export default function WhyUs() {
       text: 'Improving our students’ public speaking skill by Conducting Speeches & Debate sessions.' 
     },
     { 
-      icon: 'slideshow', 
+      icon: 'trending-up',
       title: 'Presentation Skills & Confidence', 
       text: 'Improving skills & confidence by giving students opportunities to present their own Power Point Presentations.' 
     },
     { 
       icon: 'clipboard-check', 
       title: 'Exam Preparation Sessions', 
-      text: 'Conducting Exam Preparation Sessions covering Reading, Writing, Listening & Speaking skills before Cambridge International Examinations.' 
+      // UPDATED: Polished grammar here
+      text: 'Conducting exam preparation sessions covering Reading, Writing, Listening & Speaking skills before students sit for Cambridge International Examinations.' 
     },
   ]
 
   return (
     <section id="why-us" className="page-content">
-      <h2 className="text-4xl font-bold text-center mb-10">Why Choose CEAC?</h2>
+      <h2 className="text-4xl font-bold text-center mb-10 text-brand-blue">Why Choose CEAC?</h2>
       <p className="text-center text-lg text-gray-600 max-w-3xl mx-auto mb-12">We provide an unparalleled learning environment with state-of-the-art facilities designed for success.</p>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {features.map((f, idx) => (
-          <div key={idx} className="bg-white p-6 rounded-lg shadow-md flex items-start space-x-4">
-            <i data-lucide={f.icon} className="h-8 w-8 text-brand-gold flex-shrink-0 mt-1"></i>
-            <div>
-              <h3 className="font-bold text-lg">{f.title}</h3>
-              <p className="text-gray-600 text-sm">{f.text}</p>
+        {features.map((f, idx) => {
+          const IconComponent = iconMap[f.icon];
+          return (
+            <div key={idx} className="bg-white p-6 rounded-lg shadow-md flex items-start space-x-4">
+              {IconComponent && <IconComponent className="h-8 w-8 text-brand-gold flex-shrink-0 mt-1" />}
+              <div>
+                <h3 className="font-bold text-lg text-brand-blue">{f.title}</h3>
+                <p className="text-gray-600 text-sm">{f.text}</p>
+              </div>
             </div>
-          </div>
-        ))}
+          )
+        })}
       </div>
     </section>
   )

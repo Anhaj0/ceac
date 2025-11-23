@@ -2,7 +2,6 @@
 
 export default function Courses() {
   
-  // New structured data from your checklist
   const courseCategories = [
     {
       category: "English for Kids",
@@ -39,7 +38,8 @@ export default function Courses() {
 
   return (
     <section id="courses" className="page-content">
-      <h2 className="text-4xl font-bold text-center mb-10">Our Courses & Schedule</h2>
+       {/* Blue Header */}
+      <h2 className="text-4xl font-bold text-center mb-10 text-brand-blue">Our Courses & Schedule</h2>
       <p className="text-center text-lg text-gray-600 max-w-3xl mx-auto mb-12">
         We offer a complete range of courses from beginner levels for kids to advanced Cambridge qualifications for teens and adults.
       </p>
@@ -47,7 +47,7 @@ export default function Courses() {
       <div className="space-y-16">
         {courseCategories.map((category) => (
           <div key={category.category}>
-            <h3 className="text-3xl font-bold mb-6 border-l-4 border-brand-gold pl-4">
+            <h3 className="text-3xl font-bold mb-6 border-l-4 border-brand-gold pl-4 text-brand-blue">
               {category.category}
             </h3>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">

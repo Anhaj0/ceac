@@ -1,8 +1,9 @@
-import cambridgeLogo from '../assets/cambridge_prep_logo.jpg' // Make sure this image exists!
+import cambridgeLogo from '../assets/cambridge_prep_logo.jpg' 
 export default function Cambridge() {
   return (
     <section id="cambridge" className="page-content">
-      <h2 className="text-4xl font-bold text-center mb-10">Cambridge English Qualifications</h2>
+       {/* Blue Header */}
+      <h2 className="text-4xl font-bold text-center mb-10 text-brand-blue">Cambridge English Qualifications</h2>
       <div className="bg-white p-8 md:p-12 rounded-lg shadow-lg">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
@@ -19,7 +20,7 @@ export default function Cambridge() {
           </div>
         </div>
         <div className="mt-12">
-          <h4 className="text-xl font-semibold text-center mb-6">We prepare students for qualifications including:</h4>
+          <h4 className="text-xl font-semibold text-center mb-6 text-brand-blue">We prepare students for qualifications including:</h4>
           <div className="flex justify-center flex-wrap gap-4">
             <span className="bg-blue-100 text-brand-blue font-medium px-4 py-2 rounded-full">YLE (Starters, Movers, Flyers)</span>
             <span className="bg-blue-100 text-brand-blue font-medium px-4 py-2 rounded-full">A2 Key (KET)</span>

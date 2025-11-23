@@ -1,15 +1,30 @@
 // src/components/Footer.jsx
-
 import { NavLink } from 'react-router-dom'
+import { Facebook, Instagram, Youtube } from 'lucide-react'
+
+// Custom WhatsApp SVG Component
+const WhatsAppIcon = ({ className }) => (
+  <svg 
+    xmlns="http://www.w3.org/2000/svg" 
+    viewBox="0 0 24 24" 
+    fill="none" 
+    stroke="currentColor" 
+    strokeWidth="2" 
+    strokeLinecap="round" 
+    strokeLinejoin="round" 
+    className={className}
+  >
+    <path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21" />
+  </svg>
+);
 
 export default function Footer() {
   const link = 'nav-link hover:text-white'
   
-  // --- Add your real social media links here ---
-  const facebookUrl = "https://facebook.com/YOUR_PAGE_NAME";
-  const instagramUrl = "https://instagram.com/YOUR_ACCOUNT_NAME";
-  const youtubeUrl = "https://youtube.com/YOUR_CHANNEL_NAME";
-  const whatsappUrl = "https://wa.me/YOUR_PHONE_NUMBER"; // Example: https://wa.me/94769144511
+  const facebookUrl = "https://www.facebook.com/share/1RKfHYGn8h/";
+  const instagramUrl = "https://www.instagram.com/cambridgeenglishacademycolombo?utm_source=qr&igsh=NTZmYXZ1MzV2OXNu";
+  const youtubeUrl = "https://youtube.com/@cambridgeenglishacademycolombo?si=lRsag41iFwOE0Rkd";
+  const whatsappUrl = "https://wa.me/94769144511"; 
 
   return (
     <footer className="bg-gray-800 text-white mt-16">
@@ -21,7 +36,8 @@ export default function Footer() {
           </div>
           <div>
             <h3 className="text-xl font-bold mb-4">Quick Links</h3>
-            <ul className="space-y-2 text-gray-400">
+            {/* UPDATED: Increased text size to text-lg */}
+            <ul className="space-y-2 text-gray-400 text-lg">
               <li><NavLink to="/about" className={link}>About Us</NavLink></li>
               <li><NavLink to="/courses" className={link}>Courses</NavLink></li>
               <li><NavLink to="/contact" className={link}>Contact</NavLink></li>
@@ -30,17 +46,18 @@ export default function Footer() {
           <div>
             <h3 className="text-xl font-bold mb-4">Follow Us</h3>
             <div className="flex space-x-4 justify-center md:justify-start">
+              {/* UPDATED: Increased icon size from w-6 to w-8 */}
               <a href={facebookUrl} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white">
-                <i data-lucide="facebook" className="h-6 w-6" />
+                <Facebook className="h-8 w-8" />
               </a>
               <a href={instagramUrl} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white">
-                <i data-lucide="instagram" className="h-6 w-6" />
+                <Instagram className="h-8 w-8" />
               </a>
               <a href={youtubeUrl} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white">
-                <i data-lucide="youtube" className="h-6 w-6" />
+                <Youtube className="h-8 w-8" />
               </a>
               <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white">
-                <i data-lucide="message-circle" className="h-6 w-6" /> {/* Using message-circle for WhatsApp */}
+                <WhatsAppIcon className="h-8 w-8" />
               </a>
             </div>
           </div>

@@ -1,0 +1,111 @@
+// src/data/images.js
+
+// --- 1. TEAM IMAGES (.webp) ---
+import hassanThassim from '../assets/Mr. Hassan Thassim.webp';
+import raeeshaHassan from '../assets/Mrs. Raeesha Hassan.webp';
+import mizraHussain from '../assets/Mrs. Mizra Hussain.webp';
+import aayshaImtiyaz from '../assets/Ms. Aaysha Imtiyaz.webp';
+import nafiyaAhamed from '../assets/Mrs. Nafiya Shazly Ahamed.webp';
+import rawzanaImthissam from '../assets/Mrs. Rawzana Imthissam.webp';
+import sheimaRikaz from '../assets/Mrs. Sheima Rikaz.webp';
+
+// --- 2. GALLERY IMAGES (.webp) ---
+import photo1_2024 from '../assets/photo 1 2024.webp';
+import photo2_2024 from '../assets/photo 2 2024.webp';
+import photo3_2024 from '../assets/photo 3 2024.webp';
+import photo4_2024 from '../assets/photo 4 2024.webp';
+import photo5_2024 from '../assets/photo 5 2024.webp';
+
+// --- 3. SLIDESHOW IMAGES (.webp) ---
+import slide1 from '../assets/slide 1.webp';
+import slide2 from '../assets/slide 2.webp';
+import slide3 from '../assets/slide 3.webp';
+
+// Mobile versions
+import slide1Mobile from '../assets/slide 1 mobile.webp'; 
+import slide2Mobile from '../assets/slide 2 mobile.webp';
+import slide3Mobile from '../assets/slide 3 mobile.webp';
+
+// --- 4. NEWS IMAGES ---
+import newIntakeNews from '../assets/graphic_new_intake.webp'; 
+// 2025 Awarding Ceremony image
+import awarding2025News from '../assets/2025 Awarding.webp';
+
+
+// --- CONFIGURATION ---
+
+export const teamData = [
+  {
+    name: 'Mr. Hassan Thassim',
+    title: 'Chairman of Cambridge English Academy Colombo.',
+    img: hassanThassim,
+    style: { objectPosition: '50% 10%' } 
+  },
+  {
+    name: 'Mrs. Raeesha Hassan',
+    title: 'Founder/Directress of Cambridge English Academy Colombo.',
+    img: raeeshaHassan,
+    style: { objectPosition: '50% 20%' } 
+  },
+  {
+    name: 'Mrs. Mizra Hussain',
+    title: 'HR Manager',
+    img: mizraHussain,
+    style: { objectPosition: '50% 10%' }
+  },
+  {
+    name: 'Ms. Aaysha Imtiyaz',
+    title: 'Coordinator',
+    img: aayshaImtiyaz,
+    style: { objectPosition: '50% 20%' }
+  },
+  {
+    name: 'Mrs. Nafiya Shazly Ahamed',
+    title: 'Senior Course Coordinator',
+    img: nafiyaAhamed,
+    style: { objectPosition: '50% 10%' }
+  },
+  {
+    name: 'Mrs. Rawzana Imthissam',
+    title: 'Junior Course Coordinator',
+    img: rawzanaImthissam,
+    style: { objectPosition: '50% 0%' }
+  },
+  {
+    name: 'Mrs. Sheima Rikaz',
+    title: 'Event Coordinator',
+    img: sheimaRikaz,
+    style: { objectPosition: '50% 20%' }
+  }
+];
+
+export const galleryData = [
+    { src: photo1_2024, alt: 'Academy Event 2024 - 1', year: '2024' },
+    { src: photo2_2024, alt: 'Academy Event 2024 - 2', year: '2024' },
+    { src: photo3_2024, alt: 'Academy Event 2024 - 3', year: '2024' },
+    { src: photo4_2024, alt: 'Academy Event 2024 - 4', year: '2024' },
+    { src: photo5_2024, alt: 'Academy Event 2024 - 5', year: '2024' },
+];
+
+export const slideshowData = [
+    {
+      bgImageDesktop: slide1,
+      bgImageMobile: slide1Mobile || slide1, 
+      cta: { text: 'Explore Our Courses', href: '/courses', variant: 'gold' }
+    },
+    {
+      bgImageDesktop: slide2,
+      bgImageMobile: slide2Mobile || slide2,
+      cta: { text: 'Contact Us Today', href: '/contact', variant: 'blue' }
+    },
+    {
+      bgImageDesktop: slide3,
+      bgImageMobile: slide3Mobile || slide3,
+      cta: { text: 'Learn More About Us', href: '/about', variant: 'gold' }
+    }
+];
+
+export const newsImages = {
+    newIntake: newIntakeNews,
+    awarding2025: awarding2025News,
+};
