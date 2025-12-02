@@ -1,0 +1,15 @@
+# ceac-api/.htaccess
+
+# Prevent directory listing
+Options -Indexes
+
+# Hide sensitive files
+<FilesMatch "^\.">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+<Files "db_connect.php">
+    Order allow,deny
+    Deny from all
+</Files>

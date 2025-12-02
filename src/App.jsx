@@ -12,6 +12,21 @@ import Videos from './pages/Videos.jsx'
 import About from './pages/About.jsx'
 import Contact from './pages/Contact.jsx'
 import Gallery from './pages/Gallery.jsx'
+import Login from './pages/Login.jsx'
+import StudentDashboard from './pages/StudentDashboard.jsx'
+import AdminDashboard from './pages/AdminDashboard.jsx'
+import { Navigate } from 'react-router-dom'
+
+const ProtectedRoute = ({ children, role }) => {
+  const userRole = sessionStorage.getItem('role');
+  const userId = sessionStorage.getItem('user_id');
+
+  if (!userId || (role && userRole !== role)) {
+    return <Navigate to="/login" replace />;
+  }
+
+  return children;
+};
 
 function App() {
   return (
@@ -30,6 +45,23 @@ function App() {
             <Route path="/videos" element={<Videos />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/login" element={<Login />} />
+            <Route
+              path="/student-dashboard"
+              element={
+                <ProtectedRoute role="student">
+                  <StudentDashboard />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/admin-dashboard"
+              element={
+                <ProtectedRoute role="admin">
+                  <AdminDashboard />
+                </ProtectedRoute>
+              }
+            />
           </Routes>
         </main>
         <Footer />

@@ -1,6 +1,6 @@
 // src/pages/About.jsx
 import cambridgePrepLogo from '../assets/cambridge_prep_logo.jpg';
-import { teamData } from '../data/images.js'; 
+import { teamData, guestMessages } from '../data/images.js'; // Import guestMessages
 
 export default function About() {
   return (
@@ -22,13 +22,12 @@ export default function About() {
         </div>
       </div>
 
+      {/* --- TEAM SECTION --- */}
       <div className="mt-20">
-         {/* Blue Header */}
         <h3 className="text-3xl font-bold text-center mb-12 text-brand-blue">Meet Our Team</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {teamData.map((member) => (
             <div key={member.name} className="bg-white rounded-lg shadow-lg text-center overflow-hidden">
-              {/* UPDATED: Added border-2 border-brand-gold */}
               <div className="overflow-hidden h-80 bg-gray-100 border-2 border-brand-gold">
                 <img 
                   src={member.img} 
@@ -45,6 +44,44 @@ export default function About() {
           ))}
         </div>
       </div>
+
+      {/* --- NEW GUEST MESSAGES SECTION (Matches your sketch) --- */}
+      <div className="mt-24 mb-12">
+        <h3 className="text-3xl font-bold text-center mb-16 text-brand-blue">Messages from Our Guests of Honour</h3>
+        <div className="space-y-12">
+          {guestMessages.map((guest, index) => (
+            <div key={index} className="bg-white p-8 rounded-xl shadow-md border-l-8 border-brand-gold">
+              
+              {/* Header Part: Name/Title and Image Circle */}
+              <div className="flex flex-col-reverse md:flex-row items-center md:justify-between mb-6">
+                <div className="text-center md:text-left mt-4 md:mt-0 flex-1">
+                  <h4 className="text-2xl font-bold text-brand-blue">{guest.name}</h4>
+                  <p className="text-sm font-semibold text-gray-500 uppercase tracking-wider mt-1">{guest.title}</p>
+                </div>
+                
+                <div className="flex-shrink-0">
+                  <div className="h-28 w-28 rounded-full border-4 border-brand-blue overflow-hidden shadow-sm">
+                    <img 
+                      src={guest.img} 
+                      alt={guest.name} 
+                      className="w-full h-full object-cover" 
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Body Part: The Text (Summarized) */}
+              <div className="bg-gray-50 p-6 rounded-lg border border-gray-100">
+                <p className="text-gray-700 leading-relaxed italic text-lg">
+                  "{guest.text}"
+                </p>
+              </div>
+
+            </div>
+          ))}
+        </div>
+      </div>
+
     </section>
   )
 }
