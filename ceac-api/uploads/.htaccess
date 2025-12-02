@@ -1,0 +1,10 @@
+# ceac-api/uploads/.htaccess
+
+# Disable PHP Execution
+<FilesMatch "\.(php|php5|phtml)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# Prevent directory listing
+Options -Indexes
